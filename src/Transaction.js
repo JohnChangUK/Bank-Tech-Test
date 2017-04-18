@@ -1,3 +1,5 @@
+(function(exports){
+
 function Transaction() {
     this.balance = 0;
     this.withdrawal = 0;
@@ -8,7 +10,7 @@ function Transaction() {
 Transaction.prototype.getDate = function() {
     var date = new Date();
     var day = ("1" + (date.getDate())).slice(-2);
-    var month = ("1" + (date.getMonth)).slice(-2);
+    var month = ("1" + (date.getMonth() + 1)).slice(-2);
     var year = date.getFullYear();
     return `${day}/${month}/${year}`;
 };
@@ -22,3 +24,7 @@ Transaction.prototype.depositMoney = function(value) {
     this.date = this.getDate();
     this.deposit = value;
 };
+
+exports.Transaction = Transaction;
+
+})(this);

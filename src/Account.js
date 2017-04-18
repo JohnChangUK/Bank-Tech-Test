@@ -1,3 +1,5 @@
+(function(exports) {
+
 function Account() {
     this.balance = 0;
     this.transactionsArray = [];
@@ -26,3 +28,7 @@ Account.prototype.deposit = function(amount) {
     this.transactionsArray.push(transaction);
     this.balance += transaction.deposit;
 };
+
+exports.Account = Account;
+
+})(this);
